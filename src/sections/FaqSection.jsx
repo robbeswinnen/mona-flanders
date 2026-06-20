@@ -32,68 +32,74 @@ export default function FaqSection() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section className="section-paper" aria-label="Veelgestelde vragen" id="faq">
+    <section className="section-paper border-t border-[#e8e8e8]" id="faq">
       <div className="container-mona">
-        {/* Header — Lamoon style: left headline, right intro text */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-14">
+        
+        {/* Header Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-16">
           <div>
-            <span className="pill-label mb-5 inline-flex">FAQ</span>
-            <h2 className="font-serif text-5xl lg:text-6xl text-mona-ink leading-[1.0]">
-              Veelgestelde vragen
+            <span className="pill-label mb-4">Vragen & Antwoorden</span>
+            <h2 className="font-big-shoulders text-4xl sm:text-5xl lg:text-6xl text-[#14151a] leading-none tracking-tight">
+              VEELGESTELDE VRAGEN OVER HET BUDGET
             </h2>
           </div>
-          <div className="lg:pt-16">
-            <p className="text-mona-charcoal text-base leading-relaxed">
-              Heb je een andere vraag? Stuur ons een bericht via{' '}
+          <div className="lg:pt-8">
+            <p className="text-[#606060] text-sm leading-relaxed">
+              Heb je een andere vraag over de wetgeving of de werking van het platform? Neem gerust contact op via{' '}
               <a
                 href="mailto:hallo@mona-flanders.be"
-                className="text-mona-dark font-medium underline underline-offset-4 hover:no-underline"
+                className="text-[#fc4c01] font-bold underline hover:no-underline"
               >
                 hallo@mona-flanders.be
               </a>{' '}
-              — ons team antwoordt binnen één werkdag.
+              — ons supportteam antwoordt binnen 24 uur.
             </p>
           </div>
         </div>
 
-        {/* Accordion */}
+        {/* Accordion List with heavy top/bottom black borders */}
         <div className="max-w-full">
           {faqs.map((faq, i) => (
             <div key={i} className="accordion-row">
               <button
                 id={`faq-item-${i}`}
-                className="w-full flex items-center justify-between gap-6 py-1 text-left"
+                className="w-full flex items-center justify-between gap-6 py-2 text-left"
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
               >
-                <span className="font-serif text-xl lg:text-2xl text-mona-ink">
+                {/* Heading styled with Big Shoulders for bold impact */}
+                <span className="font-big-shoulders text-xl lg:text-2xl font-extrabold text-[#14151a] tracking-wider uppercase">
                   {faq.q}
                 </span>
+                
+                {/* Interactive indicator in orange / black */}
                 <span
-                  className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
+                  className="flex-shrink-0 w-8 h-8 flex items-center justify-center transition-colors duration-200"
                   style={{
-                    background: open === i ? '#1c3028' : 'rgba(0,0,0,0.06)',
+                    background: open === i ? '#fc4c01' : 'rgba(20, 21, 26, 0.05)',
                   }}
                 >
                   {open === i
-                    ? <Minus size={14} className="text-mona-neon" />
-                    : <Plus size={14} className="text-mona-ink" />
+                    ? <Minus size={14} className="text-white" />
+                    : <Plus size={14} className="text-[#14151a]" />
                   }
                 </span>
               </button>
 
+              {/* Collapsible Answer */}
               <div
                 className={`overflow-hidden transition-all duration-300 ${
                   open === i ? 'max-h-80 pt-4 pb-2' : 'max-h-0'
                 }`}
               >
-                <p className="text-mona-charcoal text-base leading-relaxed pr-16">
+                <p className="text-[#606060] text-sm leading-relaxed pr-12">
                   {faq.a}
                 </p>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )

@@ -1,68 +1,83 @@
 const stats = [
   {
-    value: '€1.200',
-    label: 'Gemiddeld maandbudget',
-    sub: 'Op basis van TCO bedrijfswagen',
+    value: '€1.200/m',
+    label: 'Gemiddeld Budget',
+    sub: 'Vertaald uit de Total Cost of Ownership (TCO) van je ingeleverde bedrijfswagen.',
   },
   {
     value: '64%',
-    label: 'CO₂-reductie',
-    sub: 'Versus traditionele bedrijfswagen',
+    label: 'CO₂-Reductie',
+    sub: 'Dankzij de overstap naar duurzame elektrische auto\'s, treinen en speed pedelecs.',
   },
   {
-    value: '38%',
-    label: 'Meer netto-loon',
-    sub: 'Dankzij belastingvrije uitkering',
+    value: '+38%',
+    label: 'Meer Netto-Loon',
+    sub: 'Optimaal belastingvoordeel door budget uit te keren in pilaren 2 en 3.',
   },
   {
     value: '< 5 min',
-    label: 'Setup tijd',
-    sub: 'Van aanvraag tot actief budget',
+    label: 'Setup Tijd',
+    sub: 'Snelle onboarding van werknemers en werkgevers via ons digitaal dashboard.',
+  },
+  {
+    value: '100%',
+    label: 'Belastingvrij',
+    sub: 'Volledig goedgekeurd door de federale Belgische wetgeving en RSZ.',
+  },
+  {
+    value: '2.400+',
+    label: 'Actieve Gebruikers',
+    sub: 'Professionals in Vlaanderen die dagelijks hun mobiliteitsbudget beheren.',
   },
 ]
 
 export default function StatsSection() {
   return (
-    <section
-      className="relative z-10 pb-0"
-      style={{ background: '#1c3028' }}
-      aria-label="Statistieken"
-    >
-      {/* 4-column stats grid that overlaps into the light section below */}
+    <section className="section-white border-t border-[#e8e8e8]" aria-label="Statistieken">
       <div className="container-mona">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px border border-white/10 rounded-2xl overflow-hidden"
-          style={{ background: 'rgba(255,255,255,0.06)' }}
-        >
-          {stats.map(({ value, label, sub }, i) => (
+        
+        {/* Header Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+          <div className="lg:col-span-6">
+            <span className="pill-label mb-4">Systeem Statistieken</span>
+            <h2 className="font-big-shoulders text-4xl sm:text-5xl lg:text-6xl text-[#14151a] leading-none tracking-tight">
+              SLIMMER MOBILITEITSBEHEER MET BEWEZEN VOORDELEN
+            </h2>
+          </div>
+          <div className="lg:col-span-6 lg:pt-8">
+            <p className="text-[#606060] text-base leading-relaxed">
+              Het Belgische mobiliteitsbudget biedt ongeëvenaarde fiscale kansen. MONA digitaliseert de volledige administratie, waardoor de overgang voor zowel HR-teams als werknemers naadloos verloopt. Geen handmatige berekeningen, wel 100% fiscaal voordeel.
+            </p>
+          </div>
+        </div>
+
+        {/* 6-Grid Stats Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8e8] border border-[#e8e8e8]">
+          {stats.map(({ value, label, sub }) => (
             <div
               key={label}
-              className={`p-8 lg:p-10 flex flex-col gap-3 group transition-colors duration-300 hover:bg-white/5 ${
-                i < 3 ? 'border-r border-white/10' : ''
-              }`}
+              className="bg-white p-8 lg:p-10 flex flex-col justify-between transition-colors duration-300 hover:bg-[#fbfbfb]"
             >
-              {/* Giant number — Lamoon style */}
-              <div className="font-serif text-5xl lg:text-6xl text-white leading-none tracking-tight">
-                {value}
-              </div>
               <div>
-                <div className="text-white/80 text-sm font-medium mb-1">{label}</div>
-                <div className="text-white/35 text-xs leading-relaxed">{sub}</div>
+                {/* Monospace Metric in orange */}
+                <div className="font-fragment-mono text-4xl lg:text-5xl text-[#fc4c01] font-bold tracking-tight mb-4">
+                  {value}
+                </div>
+                
+                {/* Header in Big Shoulders */}
+                <h3 className="font-big-shoulders text-xl font-extrabold text-[#14151a] tracking-wider uppercase mb-2">
+                  {label}
+                </h3>
               </div>
+              
+              {/* Description */}
+              <p className="text-[#606060] text-sm leading-relaxed mt-2">
+                {sub}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* CTA link — Lamoon's "Let's build your next chapter" */}
-        <div className="flex justify-end py-6">
-          <a
-            href="/marktplaats"
-            className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:gap-3"
-            style={{ background: '#adff00', color: '#1c3028' }}
-          >
-            Bereken je voordeel
-            <span>→</span>
-          </a>
-        </div>
       </div>
     </section>
   )

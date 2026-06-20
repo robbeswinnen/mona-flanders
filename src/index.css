@@ -9,20 +9,23 @@
   }
 
   body {
-    font-family: 'DM Sans', Inter, system-ui, sans-serif;
-    background-color: #f0f0eb;
-    color: #1a1a1a;
+    font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+    background-color: #fbfbfb;
+    color: #14151a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4 {
-    font-family: 'Forum', Georgia, serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background-color: rgba(173, 255, 0, 0.3);
-    color: #1c3028;
+    background-color: rgba(252, 76, 1, 0.2);
+    color: #14151a;
   }
 
   * {
@@ -35,28 +38,28 @@
 
   /* ── SECTION BACKGROUNDS ── */
   .section-paper {
-    @apply py-20 lg:py-32;
-    background: #f0f0eb;
+    @apply py-20 lg:py-28;
+    background: #fbfbfb;
   }
 
   .section-white {
-    @apply py-20 lg:py-32 bg-white;
+    @apply py-20 lg:py-28 bg-white;
   }
 
   .section-dark {
-    @apply py-20 lg:py-32;
-    background: #1c3028;
+    @apply py-20 lg:py-28;
+    background: #14151a;
   }
 
   .section-darker {
-    @apply py-20 lg:py-32;
-    background: #13231e;
+    @apply py-20 lg:py-28;
+    background: #0b0c0e;
   }
 
-  /* Legacy aliases (used by Marketplace page) */
+  /* Legacy alias */
   .section-light {
-    @apply py-20 lg:py-32;
-    background: #f0f0eb;
+    @apply py-20 lg:py-28;
+    background: #fbfbfb;
   }
 
   /* ── CONTAINER ── */
@@ -64,136 +67,156 @@
     @apply max-w-7xl mx-auto px-6 lg:px-8;
   }
 
-  /* ── GLASSMORPHIC (Marketplace / dark sections only) ── */
-  .glass-card {
-    @apply backdrop-blur-md border border-white/10 rounded-2xl;
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  /* ── BOLD / TECHNICAL CARD (Logistiqa style) ── */
+  .card-bold {
+    @apply bg-white p-8 border border-[#e8e8e8] transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   }
 
-  .glass-card-light {
-    @apply backdrop-blur-md border border-white/20 rounded-2xl;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  .card-bold:hover {
+    border-color: #14151a;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
   }
 
-  /* ── CLEAN CARD (light sections) ── */
   .card-light {
-    @apply bg-white rounded-2xl;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+    @apply bg-white border border-[#e8e8e8] transition-all duration-300;
+  }
+  .card-light:hover {
+    border-color: #14151a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
   }
 
-  .card-light:hover {
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* Dark technical card */
+  .card-dark {
+    @apply bg-[#1a1c22] p-8 border border-white/5 transition-all duration-300;
+  }
+  .card-dark:hover {
+    border-color: #fc4c01;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   /* ── BUTTONS ── */
-  /* Neon lime CTA */
-  .btn-neon {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-sm tracking-wide rounded-full transition-all duration-300;
-    background: #adff00;
-    color: #1c3028;
-    box-shadow: 0 0 20px rgba(173, 255, 0, 0.20);
+  /* High-impact orange primary CTA */
+  .btn-orange {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 font-bold text-sm tracking-widest uppercase transition-all duration-300 rounded-none cursor-pointer;
+    background: #fc4c01;
+    color: #ffffff;
+    font-family: 'Big Shoulders Display', sans-serif;
   }
-  .btn-neon:hover {
-    background: #c8f8a9;
-    box-shadow: 0 0 40px rgba(173, 255, 0, 0.40), 0 4px 20px rgba(0, 0, 0, 0.15);
+  .btn-orange:hover {
+    background: #e04300;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 76, 1, 0.25);
   }
-  .btn-neon:active {
+  .btn-orange:active {
     transform: translateY(0px);
   }
 
-  /* Dark pill button (Lamoon's "More about us") */
+  /* Legacy mapping (btn-neon maps to orange) */
+  .btn-neon {
+    @apply btn-orange;
+  }
+
+  /* Dark flat button */
   .btn-dark {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-sm tracking-wide rounded-full transition-all duration-300;
-    background: #1c3028;
-    color: #f0f0eb;
+    @apply inline-flex items-center gap-2 px-8 py-3.5 font-bold text-sm tracking-widest uppercase transition-all duration-300 rounded-none;
+    background: #14151a;
+    color: #ffffff;
+    border: 1px solid transparent;
+    font-family: 'Big Shoulders Display', sans-serif;
   }
   .btn-dark:hover {
-    background: #2a4438;
+    background: #fc4c01;
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.20);
+    box-shadow: 0 6px 20px rgba(252, 76, 1, 0.15);
   }
 
-  /* Ghost button (for dark backgrounds) */
+  /* Outline white/ghost button (for dark sections) */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 font-medium text-sm tracking-wide rounded-full border border-white/25 transition-all duration-300;
-    color: rgba(247, 247, 247, 0.9);
+    @apply inline-flex items-center gap-2 px-8 py-3.5 font-bold text-sm tracking-widest uppercase border border-white/20 transition-all duration-300 rounded-none;
+    color: #ffffff;
+    font-family: 'Big Shoulders Display', sans-serif;
   }
   .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: #ffffff;
+    color: #14151a;
+    border-color: #ffffff;
+    transform: translateY(-2px);
   }
 
-  /* Ghost dark (on light backgrounds) */
+  /* Outline dark button (for light sections) */
   .btn-ghost-dark {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 font-medium text-sm tracking-wide rounded-full border border-black/20 transition-all duration-300;
-    color: #1a1a1a;
+    @apply inline-flex items-center gap-2 px-8 py-3.5 font-bold text-sm tracking-widest uppercase border border-[#14151a]/25 transition-all duration-300 rounded-none;
+    color: #14151a;
+    font-family: 'Big Shoulders Display', sans-serif;
   }
   .btn-ghost-dark:hover {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.35);
+    background: #14151a;
+    color: #ffffff;
+    border-color: #14151a;
+    transform: translateY(-2px);
   }
 
-  /* ── BADGE / PILL ── */
-  /* Lamoon-style small gray pill label */
+  /* ── BADGES & LABELS ── */
+  /* Monospace pill label */
   .pill-label {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium tracking-wide;
-    background: rgba(0, 0, 0, 0.06);
-    color: #555;
-    border: 1px solid rgba(0, 0, 0, 0.10);
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium uppercase tracking-wider border border-[#14151a]/10 bg-black/[0.02];
+    color: #606060;
+    font-family: 'Fragment Mono', monospace;
   }
 
-  /* Neon badge (dark sections) */
   .badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase;
-    background: rgba(173, 255, 0, 0.12);
-    color: #adff00;
-    border: 1px solid rgba(173, 255, 0, 0.25);
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold tracking-wider uppercase border border-[#fc4c01]/20 bg-[#fc4c01]/5;
+    color: #fc4c01;
+    font-family: 'Fragment Mono', monospace;
   }
 
   .badge-dark {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase;
-    background: rgba(28, 48, 40, 0.08);
-    color: #1c3028;
-    border: 1px solid rgba(28, 48, 40, 0.15);
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold tracking-wider uppercase border border-white/10 bg-white/5;
+    color: #ffffff;
+    font-family: 'Fragment Mono', monospace;
   }
 
   /* ── ACCORDION ── */
   .accordion-row {
-    @apply py-5 transition-all duration-200;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    @apply py-6 transition-all duration-200 border-b border-[#e8e8e8];
+  }
+  .accordion-row:first-child {
+    border-top: 1px solid #14151a;
+  }
+  .accordion-row:last-child {
+    border-bottom: 1px solid #14151a;
   }
 
-  .accordion-row:first-child {
-    border-top: 1px solid rgba(0, 0, 0, 0.10);
+  /* Glass card compatibility for Marketplace pages */
+  .glass-card {
+    @apply border border-white/5 bg-[#1a1c22]/90 rounded-none;
+  }
+  .glass-card-light {
+    @apply border border-[#e8e8e8] bg-white rounded-none;
   }
 }
 
 /* ===== UTILITIES ===== */
 @layer utilities {
-  .text-gradient-neon {
-    background: linear-gradient(135deg, #adff00 0%, #c8f8a9 50%, #7ecb99 100%);
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #fc4c01 0%, #ff834f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .text-gradient-green {
-    background: linear-gradient(135deg, #c8f8a9 0%, #adff00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  /* Fallback aliases for lamoon gradients */
+  .text-gradient-neon { @apply text-gradient-orange; }
+  .text-gradient-green { @apply text-gradient-orange; }
 }
 
 /* ===== CUSTOM SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f0f0eb; }
-::-webkit-scrollbar-thumb { background: rgba(28, 48, 40, 0.25); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(28, 48, 40, 0.45); }
+::-webkit-scrollbar-track { background: #fbfbfb; }
+::-webkit-scrollbar-thumb { background: rgba(20, 21, 26, 0.15); }
+::-webkit-scrollbar-thumb:hover { background: rgba(20, 21, 26, 0.35); }
 
 /* ===== RANGE SLIDER ===== */
 input[type="range"] {
@@ -201,108 +224,42 @@ input[type="range"] {
   appearance: none;
   width: 100%;
   height: 4px;
-  border-radius: 999px;
+  border-radius: 0px;
+  background: #e8e8e8;
   outline: none;
   cursor: pointer;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #adff00;
-  box-shadow: 0 0 10px rgba(173, 255, 0, 0.4);
+  width: 16px;
+  height: 16px;
+  background: #fc4c01;
   cursor: pointer;
-  transition: box-shadow 0.2s ease;
+  transition: transform 0.1s ease;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 20px rgba(173, 255, 0, 0.7);
+  transform: scale(1.2);
 }
-input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #adff00;
-  box-shadow: 0 0 10px rgba(173, 255, 0, 0.4);
-  cursor: pointer;
-  border: none;
-}
-
-/* ===== BUDGET RING SVG ANIMATION ===== */
-@keyframes ringDraw {
-  from { stroke-dashoffset: 502; }
-  to   { stroke-dashoffset: var(--ring-offset); }
-}
-@keyframes counterDraw {
-  from { stroke-dashoffset: 440; }
-  to   { stroke-dashoffset: var(--counter-offset); }
-}
-.ring-track-main { animation: ringDraw 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-.ring-track-counter { animation: counterDraw 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards; }
 
 /* ===== TOGGLE SWITCH ===== */
 .toggle-input:checked + .toggle-bg {
-  background: linear-gradient(135deg, #10b981, #34d399);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+  background: #fc4c01;
 }
 .toggle-input:checked + .toggle-bg .toggle-dot {
   transform: translateX(22px);
 }
-.toggle-dot { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.toggle-dot { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
 /* ===== NAV ===== */
 .nav-scrolled {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
-}
-
-/* ===== HERO ===== */
-.hero-dark {
-  background: #1c3028;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 /* ===== STATS OVERLAP ===== */
 .stats-overlap {
-  margin-top: -80px;
+  margin-top: -60px;
   position: relative;
   z-index: 10;
 }
-
-/* ===== WOON-BONUS GLOW ===== */
-.woon-bonus-glow {
-  box-shadow:
-    0 0 30px rgba(52, 211, 153, 0.15),
-    0 4px 40px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-/* ===== PRODUCT CARD HOVER ===== */
-.product-card { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease; }
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(173, 255, 0, 0.08);
-}
-.product-card-active {
-  box-shadow: 0 0 0 2px rgba(173, 255, 0, 0.4), 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-/* ===== KEYFRAMES ===== */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
-}
-
-.animate-fade-in  { animation: fadeIn  0.8s ease-out forwards; }
-.animate-slide-up { animation: slideUp 0.6s ease-out forwards; }

@@ -7,25 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand dark green
-        'mona-dark': '#1c3028',
-        'mona-darker': '#13231e',
-        'mona-darkest': '#0d1a16',
-        // Neon green accent
-        'mona-neon': '#adff00',
-        'mona-neon-soft': '#c8f8a9',
-        // Light / paper
-        'mona-paper': '#f0f0eb',
+        // Logistiqa-inspired brand colors
+        'mona-dark': '#14151a',
+        'mona-orange': '#fc4c01',
+        'mona-muted': '#606060',
+        'mona-border': '#e8e8e8',
+        'mona-light-bg': '#fbfbfb',
+        // Legacy fallbacks / compatibility
+        'mona-neon': '#fc4c01', // maps accent to orange
+        'mona-paper': '#fbfbfb',
         'mona-off-white': '#f7f7f7',
-        'mona-light': '#ebebeb',
-        // Text
-        'mona-ink': '#1a1a1a',
-        'mona-charcoal': '#5a5a5a',
+        'mona-ink': '#14151a',
+        'mona-charcoal': '#606060',
         'mona-stone': '#888',
       },
       fontFamily: {
-        serif: ['Forum', 'Georgia', 'serif'],
-        sans: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
+        'big-shoulders': ['"Big Shoulders Display"', 'sans-serif'],
+        'fragment-mono': ['"Fragment Mono"', 'monospace'],
+        sans: ['Inter', 'DM Sans', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

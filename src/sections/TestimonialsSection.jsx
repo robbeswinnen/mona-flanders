@@ -31,137 +31,119 @@ const testimonials = [
   },
 ]
 
-const partners = [
-  'Audi Belgium',
-  'Cowboy Bikes',
-  'NMBS / SNCB',
-  'SD Worx',
-  'Partena Professional',
-  'Ethias',
-]
-
 export default function TestimonialsSection() {
   return (
-    <section
-      className="section-white"
-      aria-label="Getuigenissen"
-    >
+    <section className="section-paper border-t border-[#e8e8e8]" aria-label="Getuigenissen">
       <div className="container-mona">
-        {/* Section header */}
-        <div className="mb-12">
-          <span className="pill-label mb-5 inline-flex">Wat gebruikers zeggen</span>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-end">
-            <h2 className="font-serif text-5xl lg:text-6xl text-mona-ink leading-[1.0]">
-              Vertrouwd door ambitieuze professionals.
+        
+        {/* Header Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+          <div className="lg:col-span-6">
+            <span className="pill-label mb-4">Gebruikerservaringen</span>
+            <h2 className="font-big-shoulders text-4xl sm:text-5xl lg:text-6xl text-[#14151a] leading-none tracking-tight">
+              VERTROUWD DOOR VLAAMSE PROFESSIONALS
             </h2>
-            <p className="text-mona-charcoal text-base leading-relaxed lg:max-w-sm">
-              Van marketing managers tot HR-directeurs — duizenden Belgen vertrouwen
-              op MONA voor hun mobiliteitsbudget.
+          </div>
+          <div className="lg:col-span-6 lg:pt-8">
+            <p className="text-[#606060] text-sm leading-relaxed">
+              Van marketing managers tot financieel directeurs — honderden professionals en HR-teams vertrouwen dagelijks op MONA om hun mobiliteit fiscaal optimaal te beheren.
             </p>
           </div>
         </div>
 
-        {/* Masonry testimonial grid — Lamoon layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Left column */}
-          <div className="flex flex-col gap-5">
+        {/* 3-Column Masonry/Grid of Testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Column 1 */}
+          <div className="flex flex-col gap-6">
             {[testimonials[0], testimonials[3]].map(({ quote, name, role, initials }) => (
-              <div key={name} className="card-light p-6 flex flex-col gap-4">
-                <p className="text-mona-ink/75 text-sm leading-relaxed flex-1">
+              <div key={name} className="card-bold bg-white p-6 border border-[#e8e8e8] flex flex-col justify-between">
+                <p className="text-[#606060] text-sm leading-relaxed italic mb-6">
                   "{quote}"
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-black/6">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                    style={{ background: '#1c3028' }}
-                  >
+                <div className="flex items-center gap-3 pt-4 border-t border-[#e8e8e8]">
+                  <div className="w-10 h-10 bg-[#14151a] text-white flex items-center justify-center font-fragment-mono font-bold text-xs">
                     {initials}
                   </div>
                   <div>
-                    <div className="text-mona-ink text-sm font-semibold">{name}</div>
-                    <div className="text-mona-stone text-xs">{role}</div>
+                    <div className="font-big-shoulders text-base font-extrabold uppercase text-[#14151a] tracking-wider leading-none">
+                      {name}
+                    </div>
+                    <div className="font-fragment-mono text-[9px] text-[#606060] mt-1 leading-none">
+                      {role}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Middle column — taller, with featured highlight */}
-          <div className="flex flex-col gap-5">
-            <div
-              className="card-light p-6 flex flex-col gap-4"
-            >
-              <p className="text-mona-ink/75 text-sm leading-relaxed">
+          {/* Column 2 - containing the orange highlight card */}
+          <div className="flex flex-col gap-6">
+            
+            {/* Highlighted Orange Card */}
+            <div className="bg-[#fc4c01] p-8 border border-[#14151a] text-white flex flex-col justify-between" style={{ minHeight: '260px' }}>
+              <div>
+                <span className="font-fragment-mono text-xs uppercase tracking-widest text-white/70">MONA IMPACT</span>
+                <h3 className="font-big-shoulders text-5xl font-black uppercase tracking-tight leading-none text-white mt-4 mb-2">
+                  2.400+
+                </h3>
+                <p className="font-big-shoulders text-lg font-bold uppercase tracking-wider text-white">
+                  Actieve gebruikers in heel Vlaanderen
+                </p>
+              </div>
+              <p className="font-fragment-mono text-[10px] text-white/70 mt-4 leading-relaxed">
+                Gemiddelde loonstijging van €200 - €450 netto per maand door fiscale optimalisatie.
+              </p>
+            </div>
+
+            {/* Jonas Testimonial */}
+            <div className="card-bold bg-white p-6 border border-[#e8e8e8] flex flex-col justify-between">
+              <p className="text-[#606060] text-sm leading-relaxed italic mb-6">
                 "{testimonials[1].quote}"
               </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-black/6">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                  style={{ background: '#1c3028' }}
-                >
+              <div className="flex items-center gap-3 pt-4 border-t border-[#e8e8e8]">
+                <div className="w-10 h-10 bg-[#14151a] text-white flex items-center justify-center font-fragment-mono font-bold text-xs">
                   {testimonials[1].initials}
                 </div>
                 <div>
-                  <div className="text-mona-ink text-sm font-semibold">{testimonials[1].name}</div>
-                  <div className="text-mona-stone text-xs">{testimonials[1].role}</div>
+                  <div className="font-big-shoulders text-base font-extrabold uppercase text-[#14151a] tracking-wider leading-none">
+                    {testimonials[1].name}
+                  </div>
+                  <div className="font-fragment-mono text-[9px] text-[#606060] mt-1 leading-none">
+                    {testimonials[1].role}
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Featured number card — Lamoon's video-like centered card */}
-            <div
-              className="rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-3"
-              style={{ background: '#adff00', minHeight: '200px' }}
-            >
-              <div className="font-serif text-6xl text-mona-dark leading-none">2.400+</div>
-              <div className="text-mona-dark/70 text-sm font-medium">Actieve gebruikers in Vlaanderen</div>
-            </div>
           </div>
 
-          {/* Right column */}
-          <div className="flex flex-col gap-5">
+          {/* Column 3 */}
+          <div className="flex flex-col gap-6">
             {[testimonials[2], testimonials[4]].map(({ quote, name, role, initials }) => (
-              <div key={name} className="card-light p-6 flex flex-col gap-4">
-                <p className="text-mona-ink/75 text-sm leading-relaxed flex-1">
+              <div key={name} className="card-bold bg-white p-6 border border-[#e8e8e8] flex flex-col justify-between">
+                <p className="text-[#606060] text-sm leading-relaxed italic mb-6">
                   "{quote}"
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-black/6">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                    style={{ background: '#1c3028' }}
-                  >
+                <div className="flex items-center gap-3 pt-4 border-t border-[#e8e8e8]">
+                  <div className="w-10 h-10 bg-[#14151a] text-white flex items-center justify-center font-fragment-mono font-bold text-xs">
                     {initials}
                   </div>
                   <div>
-                    <div className="text-mona-ink text-sm font-semibold">{name}</div>
-                    <div className="text-mona-stone text-xs">{role}</div>
+                    <div className="font-big-shoulders text-base font-extrabold uppercase text-[#14151a] tracking-wider leading-none">
+                      {name}
+                    </div>
+                    <div className="font-fragment-mono text-[9px] text-[#606060] mt-1 leading-none">
+                      {role}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
 
-        {/* ── Partner logo strip — Lamoon "Trusted by 2200+ brands" ── */}
-        <div
-          className="mt-16 rounded-2xl border border-black/8 px-8 py-6 flex flex-wrap items-center justify-between gap-6"
-          style={{ background: '#f7f7f7' }}
-        >
-          <p className="text-mona-stone text-sm font-medium whitespace-nowrap">
-            Vertrouwd door{' '}
-            <span className="text-mona-ink font-semibold">toonaangevende Belgische partners</span>
-          </p>
-          <div className="flex flex-wrap items-center gap-6 lg:gap-10">
-            {partners.map((p) => (
-              <span
-                key={p}
-                className="font-semibold text-mona-charcoal/50 hover:text-mona-ink transition-colors duration-300 text-sm tracking-wide cursor-default"
-              >
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )

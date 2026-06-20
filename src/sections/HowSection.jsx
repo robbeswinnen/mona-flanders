@@ -1,168 +1,91 @@
-import { useState } from 'react'
-import { Plus, Minus } from 'lucide-react'
-
-const pillars = [
+const steps = [
   {
     num: '01',
-    title: 'Pilaar 1 — Elektrische wagen',
-    body: 'Geef je huidige bedrijfswagen terug en ontvang een maandbudget op basis van de Total Cost of Ownership (TCO). Kies vervolgens een duurzame elektrische wagen via Pilaar 1.',
-    bullets: [
-      'Volledige TCO omgezet in budget',
-      'Breed aanbod aan elektrische modellen',
-      'Lease & verzekering inbegrepen',
-    ],
+    title: 'Aanvraag Budget',
+    body: 'Je werkgever berekent de TCO van je bedrijfswagen en activeert jouw persoonlijke MONA-budget.',
   },
   {
     num: '02',
-    title: 'Pilaar 2 — Duurzaam transport',
-    body: 'Gebruik het resterende budget voor een speed pedelec, treinabonnement, deelwagen of een combinatie. 100% vrijgesteld van sociale bijdragen en bedrijfsvoorheffing.',
-    bullets: [
-      'Speed pedelec, trein, deelwagen',
-      'Volledig belastingvrij',
-      'Maandelijks aanpasbaar',
-    ],
+    title: 'Mobiliteit Kiezen',
+    body: 'Kies in de marktplaats uit een e-auto lease, speed pedelec, treinpas of mix alles flexibel.',
   },
   {
     num: '03',
-    title: 'Pilaar 3 — Woon-Bonus',
-    body: 'Resterend budget wordt automatisch belastingvrij toegewezen aan huur of hypotheek — mits je op minder dan 10 km van je werkplek woont of minstens 50% thuiswerkt.',
-    bullets: [
-      'Huur of hypotheek belastingvrij',
-      'Automatisch verrekend',
-      'Ideaal voor thuiswerkers',
-    ],
+    title: 'Activeer Woonkosten',
+    body: 'Geef aan of je nabij kantoor woont of minstens 50% thuiswerkt om Pilaar 3 belastingvrij te openen.',
+  },
+  {
+    num: '04',
+    title: 'Beheren & Scannen',
+    body: 'Scan bonnetjes in of betaal rechtstreeks met de MONA mobiliteitskaart — uitgaven worden live verwerkt.',
+  },
+  {
+    num: '05',
+    title: 'Netto Uitbetaling',
+    body: 'Ongebruikt budget wordt aan het eind van het jaar automatisch netto uitbetaald op je loonbrief.',
   },
 ]
 
 export default function HowSection() {
-  const [open, setOpen] = useState(0)
-
   return (
-    <section
-      className="section-paper"
-      aria-label="Hoe het werkt"
-      id="hoe-het-werkt"
-    >
+    <section className="section-dark border-t border-white/5 text-white" id="hoe-het-werkt">
       <div className="container-mona">
-        {/* Section header — Lamoon "About us" style */}
-        <div className="mb-14">
-          <span className="pill-label mb-5 inline-flex">Hoe het werkt</span>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
-            <h2 className="font-serif text-5xl lg:text-6xl text-mona-ink leading-[1.0]">
-              Drie pilaren.<br />Eén slim budget.
+        
+        {/* Header Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-20">
+          <div className="lg:col-span-6">
+            <span className="badge-dark mb-4">Het Proces</span>
+            <h2 className="font-big-shoulders text-4xl sm:text-5xl lg:text-6xl text-white leading-none tracking-tight">
+              EENVOUDIG INGESTELED IN 5 LOGISCHE STAPPEN
             </h2>
-            <p className="text-mona-charcoal text-base leading-relaxed lg:max-w-sm">
-              Het Belgische mobiliteitsbudget klinkt complex, maar MONA maakt het
-              eenvoudig. Volg drie stappen en geniet onmiddellijk van fiscale voordelen.
+          </div>
+          <div className="lg:col-span-6 lg:pt-8">
+            <p className="text-white/60 text-base leading-relaxed">
+              Geen ingewikkelde wetgeving of formulieren. Met MONA doorloopt de werknemer een helder traject van aanvraag tot directe uitbetaling. Wij regelen de volledige fiscale verwerking op de achtergrond.
             </p>
           </div>
         </div>
 
-        {/* Split: image left, accordion right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          {/* Left: editorial image + quote overlay */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl aspect-[4/5]">
-              <img
-                src="/images/how-section.png"
-                alt="MONA mobiliteitsbudget gebruiker"
-                className="w-full h-full object-cover"
-              />
-              {/* Quote overlay — Lamoon's green card */}
-              <div
-                className="absolute bottom-6 left-6 right-6 p-6 rounded-xl"
-                style={{ background: '#adff00' }}
-              >
-                <p className="font-serif text-lg text-mona-dark leading-snug mb-4">
-                  "Dankzij MONA rijd ik elektrisch én woon ik belastingvrij.
-                  Mijn netto-loon steeg met 22%."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white"
-                    style={{ background: '#1c3028' }}
-                  >
-                    LV
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-mona-dark">Lien Verstraete</div>
-                    <div className="text-xs text-mona-dark/60">Marketing Manager · Gent</div>
-                  </div>
-                </div>
+        {/* 5-Step Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 relative">
+          {steps.map(({ num, title, body }, idx) => (
+            <div key={title} className="relative flex flex-col items-start group">
+              
+              {/* Step number and connection line */}
+              <div className="w-full flex items-center justify-between mb-6 relative">
+                <span className="font-fragment-mono text-4xl text-[#fc4c01] font-bold">
+                  {num}
+                </span>
+                
+                {/* Horizontal line connector (only for large screens, hidden on last item) */}
+                {idx < steps.length - 1 && (
+                  <div className="hidden lg:block absolute left-14 right-[-24px] top-1/2 h-0.5 border-t border-dashed border-white/10" />
+                )}
               </div>
-            </div>
-          </div>
 
-          {/* Right: accordion */}
-          <div className="lg:pt-4">
-            <div>
-              {pillars.map((p, i) => (
-                <div key={p.num} className="accordion-row">
-                  <button
-                    id={`pillar-${i}`}
-                    className="w-full flex items-center justify-between gap-4 text-left py-1"
-                    onClick={() => setOpen(open === i ? -1 : i)}
-                    aria-expanded={open === i}
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="text-xs font-medium text-mona-stone w-6 flex-shrink-0">
-                        {p.num}
-                      </span>
-                      <span className="font-serif text-xl lg:text-2xl text-mona-ink">
-                        {p.title}
-                      </span>
-                    </div>
-                    <span
-                      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
-                      style={{
-                        background: open === i ? '#1c3028' : 'rgba(0,0,0,0.06)',
-                      }}
-                    >
-                      {open === i
-                        ? <Minus size={14} className="text-mona-neon" />
-                        : <Plus size={14} className="text-mona-ink" />
-                      }
-                    </span>
-                  </button>
+              {/* Title */}
+              <h3 className="font-big-shoulders text-xl font-bold uppercase tracking-wider text-white mb-3">
+                {title}
+              </h3>
 
-                  {/* Expanded content */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      open === i ? 'max-h-80 pt-4' : 'max-h-0'
-                    }`}
-                  >
-                    <p className="text-mona-charcoal text-sm leading-relaxed pl-10 mb-4">
-                      {p.body}
-                    </p>
-                    <ul className="pl-10 space-y-2">
-                      {p.bullets.map((b) => (
-                        <li key={b} className="flex items-center gap-2 text-sm text-mona-ink/70">
-                          <span
-                            className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                            style={{ background: '#1c3028' }}
-                          >
-                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                              <path d="M1 4L3.5 6.5L9 1" stroke="#adff00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                          </span>
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+              {/* Body */}
+              <p className="text-white/50 text-sm leading-relaxed">
+                {body}
+              </p>
             </div>
-
-            {/* CTA */}
-            <div className="mt-10">
-              <a href="/marktplaats" className="btn-dark inline-flex items-center gap-2">
-                Start met samenstellen
-                <span>→</span>
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
+
+        {/* CTA link block */}
+        <div className="mt-16 border-t border-white/10 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <span className="font-fragment-mono text-xs text-white/40 uppercase tracking-widest">
+            KLAAR OM JE MOBILITEIT IN EIGEN HANDEN TE NEMEN?
+          </span>
+          <a href="/marktplaats" className="btn-orange text-xs py-3 px-8">
+            Start nu gratis
+          </a>
+        </div>
+
       </div>
     </section>
   )

@@ -1,100 +1,149 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Barcode } from 'lucide-react'
+
+const partners = [
+  'Audi Belgium',
+  'Cowboy Bikes',
+  'NMBS / SNCB',
+  'SD Worx',
+  'Partena Professional',
+  'Ethias',
+]
 
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{ background: '#1c3028' }}
+      className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-[#fbfbfb]"
       aria-label="Hero sectie"
     >
-      {/* Full-bleed editorial image — right half */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: 'url(/images/hero.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center right',
-        }}
-      />
-      {/* Dark overlay — stronger on left, fades right */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(105deg, #1c3028 40%, rgba(28,48,40,0.82) 60%, rgba(28,48,40,0.45) 100%)',
-        }}
-      />
-      {/* Bottom fade into stats section */}
-      <div
-        className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #1c3028)' }}
-      />
+      <div className="container-mona">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column (Content) */}
+          <div className="lg:col-span-7 flex flex-col items-start">
+            
+            {/* Tech Badge */}
+            <div className="pill-label mb-6">
+              VLAAMS MOBILITEITSBUDGET · 100% FISCAAL COMPLIANT
+            </div>
+            
+            {/* Giant Title */}
+            <h1 className="font-big-shoulders text-6xl sm:text-7xl lg:text-[90px] leading-[0.9] text-[#14151a] tracking-tight mb-8">
+              JOUW BUDGET.<br />
+              <span className="text-[#fc4c01]">JOUW VRIJHEID.</span>
+            </h1>
+            
+            {/* Solid Technical Divider Line */}
+            <div className="w-full border-t-2 border-[#14151a] mb-8" />
+            
+            {/* Sub-text */}
+            <p className="text-[#606060] text-lg lg:text-xl leading-relaxed max-w-xl mb-10">
+              Wissel je bedrijfswagen in voor een slim mobiliteitsbudget van gemiddeld <strong>€1.200 per maand</strong>. Combineer een elektrische auto, speed pedelec en trein — en betaal er belastingvrij je huur of hypotheek mee.
+            </p>
+            
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4">
+              <Link to="/marktplaats" className="btn-orange inline-flex items-center gap-2">
+                Stel je pakket samen
+                <ArrowRight size={16} />
+              </Link>
+              <a
+                href="#hoe-het-werkt"
+                className="btn-ghost-dark inline-flex items-center gap-2"
+              >
+                Hoe werkt het?
+                <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+          
+          {/* Right Column (Technical Budget Receipt Card) */}
+          <div className="lg:col-span-5">
+            <div className="border-2 border-[#14151a] bg-white p-8 relative shadow-[8px_8px_0px_#14151a]">
+              
+              {/* Receipt Header */}
+              <div className="flex items-center justify-between pb-6 border-b border-[#e8e8e8]">
+                <div>
+                  <div className="font-big-shoulders text-2xl font-black text-[#14151a] tracking-wider uppercase">MONA SYSTEM DATA</div>
+                  <div className="font-fragment-mono text-[10px] text-[#606060]">TRANSID: #MN-2026-FL</div>
+                </div>
+                <div className="text-right">
+                  <div className="font-fragment-mono text-[10px] text-[#606060]">STATUS: ACTIEF</div>
+                  <div className="font-fragment-mono text-[10px] text-[#fc4c01] font-bold">100% BELASTINGVRIJ</div>
+                </div>
+              </div>
 
-      {/* Content */}
-      <div className="container-mona relative z-10 flex flex-col justify-center min-h-screen pb-32 pt-28">
-        {/* Pill tag — Lamoon style */}
-        <div className="flex items-center gap-3 mb-8 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-          <span
-            className="px-3 py-1 rounded-full text-xs font-medium"
-            style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.75)', border: '1px solid rgba(255,255,255,0.15)' }}
-          >
-            Beste oplossing
-          </span>
-          <span className="text-white/50 text-xs">Vlaams mobiliteitsbudget — volledig belastingvrij</span>
+              {/* Receipt Body */}
+              <div className="py-6 space-y-4 font-fragment-mono text-xs text-[#14151a]">
+                <div className="flex justify-between">
+                  <span>BRUTO TCO BUDGET:</span>
+                  <span className="font-bold">€ 1.200,00</span>
+                </div>
+                
+                <div className="border-t border-dashed border-[#e8e8e8] my-3" />
+                
+                <div className="flex justify-between text-[#606060]">
+                  <span>PILAAR 1 (E-LEASE):</span>
+                  <span>- € 0,00</span>
+                </div>
+                
+                <div className="flex justify-between text-[#606060]">
+                  <span>PILAAR 2 (PEDELEC):</span>
+                  <span>- € 180,00</span>
+                </div>
+                
+                <div className="flex justify-between text-[#606060]">
+                  <span>PILAAR 2 (NMBS TREIN):</span>
+                  <span>- € 75,00</span>
+                </div>
+
+                <div className="flex justify-between text-[#fc4c01] font-bold">
+                  <span>PILAAR 3 (HUUR/HYPOTHEEK):</span>
+                  <span>- € 945,00</span>
+                </div>
+
+                <div className="border-t-2 border-[#14151a] pt-4 flex justify-between text-sm font-bold">
+                  <span>NETTO WAARDE:</span>
+                  <span className="text-[#fc4c01]">€ 1.200,00</span>
+                </div>
+                <div className="flex justify-between text-[10px] text-[#606060]">
+                  <span>NETTO RENDEMENT:</span>
+                  <span>+ 100% FISCAAL NETTO</span>
+                </div>
+              </div>
+
+              {/* Barcode representation */}
+              <div className="border-t border-[#e8e8e8] pt-6 flex flex-col items-center justify-center gap-2">
+                <Barcode size={64} className="text-[#14151a]" strokeWidth={1} />
+                <span className="font-fragment-mono text-[9px] text-[#606060] tracking-widest">MONA-MOBILITY-FLANDERS</span>
+              </div>
+
+              {/* Corner Tag */}
+              <div className="absolute -top-3 -right-3 bg-[#fc4c01] text-white font-big-shoulders text-xs font-bold tracking-widest uppercase px-3 py-1 border border-[#14151a]">
+                SLIMSTE KEUZE
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Main headline — Lamoon's giant left-aligned serif */}
-        <h1
-          className="font-serif text-6xl sm:text-7xl lg:text-[96px] text-white leading-[0.95] tracking-tight max-w-3xl mb-8 animate-slide-up"
-          style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
-        >
-          Jouw budget.<br />
-          <span style={{ color: '#adff00' }}>Jouw mobiliteit.</span>
-        </h1>
-
-        {/* Thin divider line — like Lamoon */}
-        <div
-          className="w-full max-w-3xl mb-8 animate-fade-in"
-          style={{
-            height: '1px',
-            background: 'rgba(255,255,255,0.15)',
-            animationDelay: '0.35s',
-            animationFillMode: 'both',
-          }}
-        />
-
-        {/* Sub-copy */}
-        <p
-          className="text-white/60 text-lg lg:text-xl leading-relaxed max-w-xl mb-10 animate-slide-up"
-          style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
-        >
-          Wissel je bedrijfswagen in voor een slim mobiliteitsbudget van €1.200/mnd.
-          Combineer een elektrische wagen, speed pedelec en trein — en woon er belastingvrij bovenop.
-        </p>
-
-        {/* CTA */}
-        <div
-          className="flex items-center gap-4 animate-fade-in"
-          style={{ animationDelay: '0.55s', animationFillMode: 'both' }}
-        >
-          <Link to="/marktplaats" className="btn-dark inline-flex items-center gap-2">
-            Stel je pakket samen
-            <ArrowRight size={16} />
-          </Link>
-          <a
-            href="#hoe-het-werkt"
-            className="text-white/60 text-sm font-medium hover:text-white transition-colors flex items-center gap-1.5"
-          >
-            Hoe werkt het?
-            <ArrowRight size={13} className="opacity-60" />
-          </a>
+        {/* Partners Strip */}
+        <div className="mt-20 border-t border-[#e8e8e8] pt-10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <span className="font-fragment-mono text-xs uppercase tracking-wider text-[#606060] whitespace-nowrap">
+              Vertrouwd door toonaangevende Vlaamse partners:
+            </span>
+            <div className="flex flex-wrap items-center gap-6 lg:gap-10">
+              {partners.map((p) => (
+                <span
+                  key={p}
+                  className="font-big-shoulders text-lg font-bold uppercase tracking-wider text-[#606060] hover:text-[#fc4c01] transition-colors duration-300 cursor-default"
+                >
+                  {p}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/25 text-xs z-10">
-        <span className="tracking-widest uppercase text-[10px]">Ontdek meer</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/25 to-transparent" />
       </div>
     </section>
   )
