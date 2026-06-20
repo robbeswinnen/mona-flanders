@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BASE ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', Inter, system-ui, sans-serif;
+    background-color: #f0f0eb;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Forum', Georgia, serif;
+  }
+
+  ::selection {
+    background-color: rgba(173, 255, 0, 0.3);
+    color: #1c3028;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ===== COMPONENTS ===== */
+@layer components {
+
+  /* ── SECTION BACKGROUNDS ── */
+  .section-paper {
+    @apply py-20 lg:py-32;
+    background: #f0f0eb;
+  }
+
+  .section-white {
+    @apply py-20 lg:py-32 bg-white;
+  }
+
+  .section-dark {
+    @apply py-20 lg:py-32;
+    background: #1c3028;
+  }
+
+  .section-darker {
+    @apply py-20 lg:py-32;
+    background: #13231e;
+  }
+
+  /* Legacy aliases (used by Marketplace page) */
+  .section-light {
+    @apply py-20 lg:py-32;
+    background: #f0f0eb;
+  }
+
+  /* ── CONTAINER ── */
+  .container-mona {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  /* ── GLASSMORPHIC (Marketplace / dark sections only) ── */
+  .glass-card {
+    @apply backdrop-blur-md border border-white/10 rounded-2xl;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-light {
+    @apply backdrop-blur-md border border-white/20 rounded-2xl;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  /* ── CLEAN CARD (light sections) ── */
+  .card-light {
+    @apply bg-white rounded-2xl;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-light:hover {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ── BUTTONS ── */
+  /* Neon lime CTA */
+  .btn-neon {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-sm tracking-wide rounded-full transition-all duration-300;
+    background: #adff00;
+    color: #1c3028;
+    box-shadow: 0 0 20px rgba(173, 255, 0, 0.20);
+  }
+  .btn-neon:hover {
+    background: #c8f8a9;
+    box-shadow: 0 0 40px rgba(173, 255, 0, 0.40), 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+  .btn-neon:active {
+    transform: translateY(0px);
+  }
+
+  /* Dark pill button (Lamoon's "More about us") */
+  .btn-dark {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-sm tracking-wide rounded-full transition-all duration-300;
+    background: #1c3028;
+    color: #f0f0eb;
+  }
+  .btn-dark:hover {
+    background: #2a4438;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.20);
+  }
+
+  /* Ghost button (for dark backgrounds) */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-medium text-sm tracking-wide rounded-full border border-white/25 transition-all duration-300;
+    color: rgba(247, 247, 247, 0.9);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Ghost dark (on light backgrounds) */
+  .btn-ghost-dark {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-medium text-sm tracking-wide rounded-full border border-black/20 transition-all duration-300;
+    color: #1a1a1a;
+  }
+  .btn-ghost-dark:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.35);
+  }
+
+  /* ── BADGE / PILL ── */
+  /* Lamoon-style small gray pill label */
+  .pill-label {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium tracking-wide;
+    background: rgba(0, 0, 0, 0.06);
+    color: #555;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+  }
+
+  /* Neon badge (dark sections) */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase;
+    background: rgba(173, 255, 0, 0.12);
+    color: #adff00;
+    border: 1px solid rgba(173, 255, 0, 0.25);
+  }
+
+  .badge-dark {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase;
+    background: rgba(28, 48, 40, 0.08);
+    color: #1c3028;
+    border: 1px solid rgba(28, 48, 40, 0.15);
+  }
+
+  /* ── ACCORDION ── */
+  .accordion-row {
+    @apply py-5 transition-all duration-200;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+  }
+
+  .accordion-row:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.10);
+  }
+}
+
+/* ===== UTILITIES ===== */
+@layer utilities {
+  .text-gradient-neon {
+    background: linear-gradient(135deg, #adff00 0%, #c8f8a9 50%, #7ecb99 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(135deg, #c8f8a9 0%, #adff00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0f0eb; }
+::-webkit-scrollbar-thumb { background: rgba(28, 48, 40, 0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(28, 48, 40, 0.45); }
+
+/* ===== RANGE SLIDER ===== */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #adff00;
+  box-shadow: 0 0 10px rgba(173, 255, 0, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 20px rgba(173, 255, 0, 0.7);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #adff00;
+  box-shadow: 0 0 10px rgba(173, 255, 0, 0.4);
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== BUDGET RING SVG ANIMATION ===== */
+@keyframes ringDraw {
+  from { stroke-dashoffset: 502; }
+  to   { stroke-dashoffset: var(--ring-offset); }
+}
+@keyframes counterDraw {
+  from { stroke-dashoffset: 440; }
+  to   { stroke-dashoffset: var(--counter-offset); }
+}
+.ring-track-main { animation: ringDraw 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.ring-track-counter { animation: counterDraw 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards; }
+
+/* ===== TOGGLE SWITCH ===== */
+.toggle-input:checked + .toggle-bg {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+.toggle-input:checked + .toggle-bg .toggle-dot {
+  transform: translateX(22px);
+}
+.toggle-dot { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* ===== NAV ===== */
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+}
+
+/* ===== HERO ===== */
+.hero-dark {
+  background: #1c3028;
+}
+
+/* ===== STATS OVERLAP ===== */
+.stats-overlap {
+  margin-top: -80px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ===== WOON-BONUS GLOW ===== */
+.woon-bonus-glow {
+  box-shadow:
+    0 0 30px rgba(52, 211, 153, 0.15),
+    0 4px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ===== PRODUCT CARD HOVER ===== */
+.product-card { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease; }
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(173, 255, 0, 0.08);
+}
+.product-card-active {
+  box-shadow: 0 0 0 2px rgba(173, 255, 0, 0.4), 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.animate-fade-in  { animation: fadeIn  0.8s ease-out forwards; }
+.animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
